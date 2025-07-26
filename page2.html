@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Memories – Page 2</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Background Music Player -->
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+    <button id="playMusicBtn" class="music-btn">🎵 Play Music</button>
+
+    <!-- Balloons and Hearts -->
+    <div class="balloon-container" id="balloonContainer"></div>
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Slideshow Container (100 images will be inserted here dynamically) -->
+    <div class="slideshow-container" id="slideshowContainer"></div>
+
+    <!-- Controls -->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <!-- Navigation -->
+    <div class="nav-buttons">
+        <a href="index.html" class="nav-btn back-btn">← Back</a>
+        <a href="page3.html" class="nav-btn next-btn">Next →</a>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Add dynamic slide generation for 100 images -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("slideshowContainer");
+            for (let i = 1; i <= 100; i++) {
+                const div = document.createElement("div");
+                div.classList.add("slide", "fade");
+
+                const img = document.createElement("img");
+                img.src = `mem${i}.jpg`;
+                img.className = "slide-img";
+                img.alt = `mem${i}`;
+
+                div.appendChild(img);
+                container.appendChild(div);
+            }
+
+            showSlides(); // run the slideshow
+        });
+    </script>
+    <script>
+        const music = document.getElementById("bgMusic");
+        const playBtn = document.getElementById("playMusicBtn");
+
+        playBtn.addEventListener("click", () => {
+            music.play().then(() => {
+                playBtn.style.display = "none";
+            }).catch((err) => {
+                console.log("Music play failed:", err);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

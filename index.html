@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Friendship Day!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Music Player -->
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+    <button id="playMusicBtn" class="music-btn">🎵 Play Music</button>
+
+    <!-- Corner Photos -->
+    <img src="photo1.jpg" class="corner-photo top-left" alt="Memory 1">
+    <img src="photo2.jpg" class="corner-photo top-right" alt="Memory 2">
+    <img src="photo3.jpg" class="corner-photo bottom-left" alt="Memory 3">
+    <img src="photo4.jpg" class="corner-photo bottom-right" alt="Memory 4">
+
+    <!-- Main Wish Content -->
+    <div class="wish-container">
+        <h1 class="fade-in-text">💖 Happy</h1>
+        <h1 class="fade-in-text delay-1">Friendship</h1>
+        <h1 class="fade-in-text delay-2">Day! 💝</h1>
+        <p class="fade-in-text delay-3">To My All Time Constant (K)! 🎀</p>
+
+        <!-- Play Music Button -->
+        <button id="playMusicBtn" class="music-btn">▶️ Play Music</button>
+
+        <!-- Navigation Buttons -->
+        <a href="page2.html" class="nav-btn next-btn">Next →</a>
+
+    </div>
+    <!-- Balloon Container -->
+    <div class="balloon-container" id="balloonContainer"></div>
+    <!-- Heart Container -->
+    <div class="heart-container" id="heartContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        const music = document.getElementById("bgMusic");
+        const playBtn = document.getElementById("playMusicBtn");
+
+        playBtn.addEventListener("click", () => {
+            music.play().then(() => {
+                playBtn.style.display = "none";
+            }).catch((err) => {
+                console.log("Music play failed:", err);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
